@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: alpha
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username:
+    password:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # ??? ?? ?? (create, update, validate, none ? ??)
+    show-sql: true       # ???? SQL? ??? ??
+    properties:
+      hibernate:
+        format_sql: true # SQL ??? ??
