@@ -12,6 +12,7 @@ spring:
     hibernate:
       ddl-auto: create  # ??? ?? ?? (create, update, validate, none ? ??)
     show-sql: true       # ???? SQL? ??? ??
+    open-in-view: false
     properties:
       hibernate:
         format_sql: true # SQL ??? ??
