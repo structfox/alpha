@@ -1,14 +1,12 @@
 package kr.sfox.alpha.api;
 
 import kr.sfox.alpha.Service.MemberService;
+import kr.sfox.alpha.api.memberDto.MemberInfoResponse;
 import kr.sfox.alpha.api.memberDto.request.JoinMemberRequest;
 import kr.sfox.alpha.api.memberDto.response.JoinMemberResponse;
 import kr.sfox.alpha.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,5 +23,16 @@ public class MemberApiController {
         Long resultId = memberService.join(newMember);
 
         return new JoinMemberResponse(resultId);
+    }
+
+    @GetMapping("/info/{id}")
+    public MemberInfoResponse info(@PathVariable Long id) {
+        Member member = memberService.findById(id);
+
+        MemberInfoResponse response = new MemberInfoResponse();
+        response.setId(member.getId());
+        response.setUserId(member.getUserId());
+
+        return response;
     }
 }

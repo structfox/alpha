@@ -20,4 +20,8 @@ public class MemberService {
         memberRepository.save(member);
         return member.getId();
     }
+
+    public Member findById(Long id) {
+        return memberRepository.findById(id);
+    }
 }
