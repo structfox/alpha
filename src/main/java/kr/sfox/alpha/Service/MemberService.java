@@ -21,7 +21,16 @@ public class MemberService {
         return member.getId();
     }
 
+    @Transactional
     public Member findById(Long id) {
         return memberRepository.findById(id);
+    }
+
+    @Transactional
+    public boolean removeMember(String userId) {
+        Member member = memberRepository.findByUserId(userId);
+        memberRepository.removeMember(member);
+        Member newMember = memberRepository.findById(member.getId());
+        return member != newMember;
     }
 }

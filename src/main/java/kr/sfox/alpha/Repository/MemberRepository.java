@@ -17,4 +17,14 @@ public class MemberRepository {
     public Member findById(Long id) {
         return entityManager.find(Member.class, id);
     }
+
+    public void removeMember(Member member) {
+        entityManager.remove(member);
+    }
+
+    public Member findByUserId(String userId) {
+        return entityManager.createQuery("select m from Member m where m.userId = :userId", Member.class)
+                .setParameter("userId", userId)
+                .getResultList().getFirst();
+    }
 }

@@ -1,6 +1,7 @@
 package kr.sfox.alpha.api;
 
 import kr.sfox.alpha.Service.MemberService;
+import kr.sfox.alpha.api.memberDto.MemberDeleteResponse;
 import kr.sfox.alpha.api.memberDto.MemberInfoResponse;
 import kr.sfox.alpha.api.memberDto.request.JoinMemberRequest;
 import kr.sfox.alpha.api.memberDto.response.JoinMemberResponse;
@@ -34,5 +35,11 @@ public class MemberApiController {
         response.setUserId(member.getUserId());
 
         return response;
+    }
+
+    @DeleteMapping("/{userId}")
+    public MemberDeleteResponse remove(@PathVariable String userId) {
+        boolean result = memberService.removeMember(userId);
+        return new MemberDeleteResponse(result);
     }
 }
