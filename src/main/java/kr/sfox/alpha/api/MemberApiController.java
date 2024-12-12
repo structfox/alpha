@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class MemberApiController {
     private final MemberService memberService;
 
-    @PostMapping
+    @PostMapping("/register")
     public JoinMemberResponse join(@RequestBody JoinMemberRequest member) {
         Member newMember = new Member();
         newMember.setUserId(member.getUserId());
