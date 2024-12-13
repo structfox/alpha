@@ -1,10 +1,10 @@
-package kr.sfox.alpha.Service;
+package kr.sfox.alpha.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.sfox.alpha.Repository.MemberRepository;
+import kr.sfox.alpha.repository.MemberRepository;
 import kr.sfox.alpha.domain.Member;
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package kr.sfox.alpha.Repository;
+package kr.sfox.alpha.repository;
 
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MemberRepository {
 
-    final private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public void save(Member member) {
         entityManager.persist(member);

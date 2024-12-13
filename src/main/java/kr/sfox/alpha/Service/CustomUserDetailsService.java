@@ -1,4 +1,4 @@
-package kr.sfox.alpha.Service;
+package kr.sfox.alpha.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import kr.sfox.alpha.Repository.MemberRepository;
+import kr.sfox.alpha.repository.MemberRepository;
 import kr.sfox.alpha.domain.Member;
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             .accountExpired(false)
             .accountLocked(false)
             .credentialsExpired(false)
-            .disabled(false == member.isEnabled())
+            .disabled(member.isEnabled() == false)
             .build();
     }
 }
