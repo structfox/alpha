@@ -6,8 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 public class Member extends BaseEntity {
+
     @Column(nullable = false, unique = true)
     private String userId;
 

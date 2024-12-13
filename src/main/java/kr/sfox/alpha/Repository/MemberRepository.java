@@ -1,13 +1,15 @@
 package kr.sfox.alpha.Repository;
 
+import org.springframework.stereotype.Repository;
+
 import jakarta.persistence.EntityManager;
 import kr.sfox.alpha.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
 public class MemberRepository {
+
     final private EntityManager entityManager;
 
     public void save(Member member) {
@@ -24,7 +26,7 @@ public class MemberRepository {
 
     public Member findByUserId(String userId) {
         return entityManager.createQuery("select m from Member m where m.userId = :userId", Member.class)
-                .setParameter("userId", userId)
-                .getResultList().getFirst();
+            .setParameter("userId", userId)
+            .getResultList().getFirst();
     }
 }
