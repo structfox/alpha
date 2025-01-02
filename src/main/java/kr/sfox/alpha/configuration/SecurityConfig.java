@@ -23,14 +23,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
-            // 다음과 같이 엔드포인트별 접근 제어 설정
             .authorizeHttpRequests(authorize -> authorize
-                // 회원가입 엔드포인트는 인증 없이 접근 가능
-                .requestMatchers("/members/register").permitAll()
-                // 나머지 요청은 인증 필요
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             )
-            // HTTP Basic 인증 사용
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
